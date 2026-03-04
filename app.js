@@ -1,10 +1,10 @@
 const gridContainer = document.querySelector("#container");
 
 const CONTAINER_SIZE = 800;
-let gridSize = 16;
-const squareSize = CONTAINER_SIZE / gridSize;
+const initialGridSize = 16;
+const squareSize = CONTAINER_SIZE / initialGridSize;
 
-for (let i = 0; i < Math.pow(gridSize, 2); i++) {
+for (let i = 0; i < Math.pow(initialGridSize, 2); i++) {
   gridContainer.appendChild(newGridSquare(squareSize));
 }
 
