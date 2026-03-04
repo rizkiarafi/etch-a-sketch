@@ -2,10 +2,10 @@ const gridContainer = document.querySelector("#container");
 const newGridSizeButton = document.querySelector("#replace-grid-size");
 
 const CONTAINER_SIZE = 800;
-const initialGridSize = 16;
-const squareSize = CONTAINER_SIZE / initialGridSize;
+const INITIAL_GRID_SIZE = 16;
+const squareSize = CONTAINER_SIZE / INITIAL_GRID_SIZE;
 
-setGridSize(initialGridSize, CONTAINER_SIZE);
+setGridSize(INITIAL_GRID_SIZE, CONTAINER_SIZE);
 
 gridContainer.addEventListener("mouseover", changeColor);
 newGridSizeButton.addEventListener("click", () =>
