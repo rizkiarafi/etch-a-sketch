@@ -5,14 +5,14 @@ const gridSize = 20;
 const squareSize = CONTAINER_SIZE / gridSize;
 
 for (let i = 0; i < Math.pow(gridSize, 2); i++) {
-  gridContainer.appendChild(newGridSquare());
+  gridContainer.appendChild(newGridSquare(squareSize));
 }
 
-function newGridSquare() {
+function newGridSquare(size) {
   const newSquare = document.createElement("div");
 
-  newSquare.style.width = inPixels(squareSize);
-  newSquare.style.height = inPixels(squareSize);
+  newSquare.style.width = inPixels(size);
+  newSquare.style.height = inPixels(size);
   newSquare.classList.add("square");
 
   return newSquare;
