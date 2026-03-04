@@ -8,6 +8,8 @@ for (let i = 0; i < Math.pow(gridSize, 2); i++) {
   gridContainer.appendChild(newGridSquare(squareSize));
 }
 
+gridContainer.addEventListener("mouseover", changeColor);
+
 function newGridSquare(size) {
   const newSquare = document.createElement("div");
 
@@ -16,6 +18,10 @@ function newGridSquare(size) {
   newSquare.classList.add("square");
 
   return newSquare;
+}
+
+function changeColor(e) {
+  e.target.classList.replace("square", "pen-trailed");
 }
 
 function inPixels(number) {
