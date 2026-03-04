@@ -27,3 +27,29 @@ function changeColor(e) {
 function inPixels(number) {
   return number + "px";
 }
+
+function getNewGridSize() {
+  let gridSize = prompt("Give a number!");
+
+  while (isNaN(Number(gridSize))) {
+    alert("You should give a number not a string!");
+    gridSize = prompt("Give a number!");
+  }
+
+  return gridSize;
+}
+
+function setGridSize(gridSize, containerSize) {
+  const squareSize = containerSize / gridSize;
+
+  clearGridContainer();
+  for (let i = 0; i < Math.pow(gridSize, 2); i++) {
+    gridContainer.appendChild(newGridSquare(squareSize));
+  }
+}
+
+function clearGridContainer() {
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.lastChild);
+  }
+}
