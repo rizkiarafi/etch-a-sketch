@@ -11,9 +11,13 @@ for (let i = 0; i < Math.pow(gridSize, 2); i++) {
 function newGridSquare() {
   const newSquare = document.createElement("div");
 
-  newSquare.style.width = squareSize + "px";
-  newSquare.style.height = squareSize + "px";
+  newSquare.style.width = inPixels(squareSize);
+  newSquare.style.height = inPixels(squareSize);
   newSquare.classList.add("square");
 
   return newSquare;
+}
+
+function inPixels(number) {
+  return number + "px";
 }
