@@ -5,10 +5,16 @@ const CONTAINER_SIZE = 800;
 const INITIAL_GRID_SIZE = 16;
 
 let opacityLevel = 0;
+let isHoldingMouse = false;
 
 setGridSize(INITIAL_GRID_SIZE, CONTAINER_SIZE);
 
 gridContainer.addEventListener("mouseover", changeColor);
+gridContainer.addEventListener("mousedown", (e) => {
+  isHoldingMouse = true;
+  changeColor(e);
+});
+gridContainer.addEventListener("mouseup", () => (isHoldingMouse = false));
 gridResizeButton.addEventListener("click", () =>
   setGridSize(getNewGridSize(), CONTAINER_SIZE),
 );
@@ -26,10 +32,12 @@ function newGridSquare(size) {
 function changeColor(e) {
   const target = e.target;
 
-  if (target.id !== "container") {
-    opacityLevel = opacityLevel >= 1 ? 1 : opacityLevel + 0.1;
-    target.style.backgroundColor = getRandomRGB();
-    target.style.opacity = opacityLevel;
+  if (isHoldingMouse) {
+    if (target.id !== "container") {
+      opacityLevel = opacityLevel >= 1 ? 1 : opacityLevel + 0.1;
+      target.style.backgroundColor = getRandomRGB();
+      target.style.opacity = opacityLevel;
+    }
   }
 }
 
