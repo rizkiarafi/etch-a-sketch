@@ -4,6 +4,8 @@ const gridResizeButton = document.querySelector("#grid-resize-btn");
 const CONTAINER_SIZE = 800;
 const INITIAL_GRID_SIZE = 16;
 
+let opacityLevel = 0;
+
 setGridSize(INITIAL_GRID_SIZE, CONTAINER_SIZE);
 
 gridContainer.addEventListener("mouseover", changeColor);
@@ -22,7 +24,13 @@ function newGridSquare(size) {
 }
 
 function changeColor(e) {
-  e.target.style.backgroundColor = getRandomRGB();
+  const target = e.target;
+
+  if (target.id !== "container") {
+    opacityLevel = opacityLevel >= 1 ? 1 : opacityLevel + 0.1;
+    target.style.backgroundColor = getRandomRGB();
+    target.style.opacity = opacityLevel;
+  }
 }
 
 function getRandomRGB() {
@@ -62,6 +70,7 @@ function setGridSize(gridSize, containerSize) {
 }
 
 function clearGridContainer() {
+  opacityLevel = 0;
   while (gridContainer.firstChild) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
