@@ -22,7 +22,19 @@ function newGridSquare(size) {
 }
 
 function changeColor(e) {
-  e.target.classList.replace("square", "pen-trailed");
+  e.target.style.backgroundColor = getRandomRGB();
+}
+
+function getRandomRGB() {
+  const red = randomInteger(256);
+  const green = randomInteger(256);
+  const blue = randomInteger(256);
+
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function randomInteger(maxExclusive) {
+  return Math.floor(Math.random() * maxExclusive);
 }
 
 function inPixels(number) {
